@@ -1,0 +1,121 @@
+.contatos-list {
+  padding: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contato-item {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contato-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  border-color: #007bff;
+}
+
+.contato-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+.contato-item h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contato-item p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contato-item p::before {
+  content: '✉️';
+  font-size: 12px;
+}
+
+/* Efeito de loading sutil */
+.contato-item {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .contatos-list {
+    padding: 12px;
+  }
+  
+  .contato-item {
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .contato-item h3 {
+    font-size: 16px;
+  }
+  
+  .contato-item p {
+    font-size: 13px;
+  }
+}
+
+/* Melhoria no header */
+ion-toolbar {
+  --background: #007bff;
+  --color: white;
+}
+
+ion-title {
+  font-weight: 600;
+}
+
+/* Botão de adicionar */
+ion-button {
+  --background: #28a745;
+  --background-hover: #218838;
+  --background-activated: #1e7e34;
+  --border-radius: 20px;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+/* Estilo para quando não há contatos */
+.contatos-list:empty::after {
+  content: "Nenhum contato encontrado";
+  display: block;
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-style: italic;
+}
